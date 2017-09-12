@@ -17,16 +17,13 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let listitem of ListItems">
-                        <!--<td>
-                            <div type="radio" name="Type" [(ngModel)]="ListItem.Type" [value]="ListItem.Type">
-                            {{Type.display}}
-                                </div>
-                        </td>-->
-                        <td>{{listitem.name}}</td>
-                        <td>{{listitem.state}}</td>
+                        <td *ngIf="listitem.Type==0">Task</td>
+                        <td *ngIf="listitem.Type==1">Defect</td>
+                        <td>{{listitem.Name}}</td>
+                        <td>{{listitem.State}}</td>
                         <td>
-                            <button title="Edit" class="btn btn-primary" (click)="editUser(user.Id)">Edit</button>
-                            <button title="Delete" class="btn btn-danger" (click)="deleteUser(user.Id)">Delete</button>
+                            <button title="Edit" class="btn btn-primary" (click)="editEntity(listitem.Id)">Edit</button>
+                            <button title="Delete" class="btn btn-danger" (click)="deleteEntity(listitem.Id)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
